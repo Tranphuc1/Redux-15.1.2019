@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {FlatList,StyleSheet, View,Text,Button,TouchableOpacity} from 'react-native';
+import {FlatList,StyleSheet, View,Text,TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 
 class HomeScreenDetail extends React.Component {
@@ -69,7 +69,6 @@ class HomeScreenDetail extends React.Component {
       }
       );
   }
-
   render() {
     return (
       <View style={{flex: 1, paddingTop:20}}> 
