@@ -8,8 +8,9 @@
 
 import React from 'react';
 import {FlatList,StyleSheet, View,Text,Button,TouchableOpacity} from 'react-native';
+import { connect } from 'react-redux';
 
-export default class HomeScreenDetail extends React.Component {
+class HomeScreenDetail extends React.Component {
     static navigationOptions = {
     title: 'HomeScreenDetail',
     headerStyle: {
@@ -78,9 +79,8 @@ export default class HomeScreenDetail extends React.Component {
         renderItem={({item,index}) =>
             <View style={styles.item}>
               <TouchableOpacity onPress ={  onPress= () =>{
-                  this.props.navigation.navigate('UserProfile', {
-                    item:item
-                  });
+                  this.props.navigation.navigate('UserProfile');
+                  this.props.dispatch({type:'UP_DATA', item:item});
                 }}>
                 <Text> TASK_CODE:{item.task_code} </Text>
                 <Text>DESCRIPTION:{item.description}</Text>
@@ -99,6 +99,7 @@ export default class HomeScreenDetail extends React.Component {
     );
   }
 }
+export default connect()(HomeScreenDetail);
 const styles = StyleSheet.create({
   item:{
     flex:1,

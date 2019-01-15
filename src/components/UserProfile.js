@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import {View,Text} from 'react-native';
-export default class UserProfileScreen extends Component {
+import { connect } from 'react-redux';
+class UserProfileScreen extends Component {
   render() {
     const { navigation } = this.props;
-    const item = navigation.getParam('item', 'no-item');
+    const item = this.props.MyData;
+    // const item = navigation.getParam('item', 'no-item');
     return (
         <View>
           <Text>ID: {JSON.stringify(item.id)}</Text>
@@ -15,3 +17,9 @@ export default class UserProfileScreen extends Component {
     );
   }
 }
+function mapStateToProps(state){
+  return {
+    MyData: state.item
+  }
+}
+export default connect(mapStateToProps)(UserProfileScreen);

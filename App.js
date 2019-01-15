@@ -3,9 +3,27 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import {View,Text,Button} from 'react-native';
 import HomeScreenDetail from './src/components/Home';
 import UserProfileScreen from './src/components/UserProfile';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+const defaultState ={item:{}}
+const reducer = (state = defaultState, action) =>{
+  
+  switch (action.type) {
+      case 'UP_DATA' :
+          return {item:action.item};
+      default:
+          return state;
+  }
+}
+const store = createStore(reducer);
 export default class App extends React.Component{
   render() {
-    return <AppContainer/>
+    return (
+      <Provider store={store}>
+        <AppContainer/>
+      </Provider>
+    );
   }
 }
 class HomeScreen extends React.Component {
