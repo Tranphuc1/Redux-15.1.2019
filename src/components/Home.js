@@ -79,6 +79,11 @@ class HomeScreenDetail extends React.Component {
                 <Text>NAME:{item.task_name}</Text>
                 <Text>Created_at:{item.created_at}</Text>
               </TouchableOpacity>
+              <TouchableOpacity onPress ={  onPress= () =>{
+                  this.props.navigation.navigate('SnapShot');
+                }}>
+                <Text>SNAPSHOT</Text>
+              </TouchableOpacity>
             </View>
         }
           keyExtractor={(item) => item.id}
