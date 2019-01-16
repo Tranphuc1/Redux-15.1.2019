@@ -1,13 +1,6 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React from 'react';
 import {FlatList,StyleSheet, View,Text,TouchableOpacity} from 'react-native';
+import { actUpData } from '../actions/actions';
 import { connect } from 'react-redux';
 
 class HomeScreenDetail extends React.Component {
@@ -72,7 +65,6 @@ class HomeScreenDetail extends React.Component {
   render() {
     return (
       <View style={{flex: 1, paddingTop:20}}> 
-        
         <FlatList
         data={this.state.data}
         renderItem={({item,index}) =>
@@ -80,6 +72,7 @@ class HomeScreenDetail extends React.Component {
               <TouchableOpacity onPress ={  onPress= () =>{
                   this.props.navigation.navigate('UserProfile');
                   this.props.dispatch({type:'UP_DATA', item:item});
+                  // this.props.onAddDaTa(item);
                 }}>
                 <Text> TASK_CODE:{item.task_code} </Text>
                 <Text>DESCRIPTION:{item.description}</Text>
@@ -98,6 +91,13 @@ class HomeScreenDetail extends React.Component {
     );
   }
 }
+// const mapDispatchToProps = (dispatch, props) => {
+//   return {
+//     onAddDaTa : (item) => {
+//         dispatch(actUpData(item));
+//     }
+//   }
+// }
 export default connect()(HomeScreenDetail);
 const styles = StyleSheet.create({
   item:{
@@ -107,13 +107,3 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2
   }
 })
-// const AppNavigator = createStackNavigator({
-//   HomeDetail: HomeScreenDetail,
-//   UserProfile: {
-//     screen: UserProfileScreen,
-//     navigationOptions: () => ({
-//       headerBackTitle:null
-//     }),
-//   }
-// });
-// export default createAppContainer (AppNavigator);
