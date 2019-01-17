@@ -64,7 +64,6 @@ class HomeScreenDetail extends React.Component {
   render() {
     const { navigation } = this.props;
     const image = navigation.getParam('image', 'no-img');
-    console.log(image);
     return (
       <View style={{flex: 1, paddingTop:20}}> 
         <TouchableOpacity onPress ={  onPress= () =>{
@@ -102,13 +101,6 @@ class HomeScreenDetail extends React.Component {
     );
   }
 }
-// const mapDispatchToProps = (dispatch, props) => {
-//   return {
-//     onAddDaTa : (item) => {
-//         dispatch(actUpData(item));
-//     }
-//   }
-// }
 export default connect()(HomeScreenDetail);
 const styles = StyleSheet.create({
   item:{
