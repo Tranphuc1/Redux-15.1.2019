@@ -6,16 +6,6 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './src/reducers/taskReducer';
 
-
-// const defaultState ={item:{}}
-// const reducer = (state = defaultState, action) =>{
-//   switch (action.type) {
-//       case 'UP_DATA' :
-//           return {item:action.item};
-//       default:
-//           return state;
-//   }
-// }
 const store = createStore(reducer);
 export default class App extends React.Component{
   render() {
