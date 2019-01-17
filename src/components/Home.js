@@ -27,7 +27,7 @@ class HomeScreenDetail extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.loadMoreData();
   }
 
@@ -83,13 +83,7 @@ class HomeScreenDetail extends React.Component {
           data={this.state.data}
           renderItem={({ item, index }) =>
             <View style={styles.item}>
-              <FlatListItems item = {item}/>
-              {/* <TouchableOpacity onPress={this.onPress(item)}>
-                <Text> TASK_CODE:{item.task_code} </Text>
-                <Text>DESCRIPTION:{item.description}</Text>
-                <Text>NAME:{item.task_name}</Text>
-                <Text>Created_at:{item.created_at}</Text>
-              </TouchableOpacity> */}
+              <FlatListItems item={item} onPress={this.onPress(item)} />
             </View>
           }
           keyExtractor={(item) => item.id}

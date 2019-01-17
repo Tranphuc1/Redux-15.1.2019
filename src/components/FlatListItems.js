@@ -1,19 +1,35 @@
 import React from 'react';
-import { View,Text,StyleSheet,Button} from 'react-native';
-import { createStackNavigator, createAppContainer } from "react-navigation";
-import UserProfileScreen from './UserProfile';
-class FlatListItems extends React.Component{
+import { View,Text,StyleSheet,TouchableOpacity} from 'react-native';
+export default class FlatListItems extends React.Component{
+  constructor(props){
+    super(props);
+    this.state ={
+      item : this.props.item
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(nextProps.item);
+    console.log(prevState.item);
+    if (nextProps.item !== prevState.item) {
+      return { item: nextProps.item };
+    }
+    else return null;
+  }
+
     render(){
+      const { item } = this.props;
       return (
               <View style={styles.item}>
-                  <Button onPress ={()=>this.props.navigator.navigate('UserProfile')}/>
-                  <Text>{this.props.item.id}</Text>
-                  <Text>{this.props.item.task_code}</Text>
-                  <Text>{this.props.item.task_name}</Text>
-                  <Text>{this.props.item.description}</Text>
-                  <Text>{this.props.item.created_at}</Text>
+                <TouchableOpacity onPress={this.props.onPress}>
+                  <Text>{item.id}</Text>
+                  <Text>{item.task_code}</Text>
+                  <Text>{item.task_name}</Text>
+                  <Text>{item.description}</Text>
+                  <Text>{item.created_at}</Text>
+                </TouchableOpacity>
               </View>
-        )
+        );
     }
   }
   const styles = StyleSheet.create({
@@ -24,8 +40,3 @@ class FlatListItems extends React.Component{
       borderBottomWidth: 2
     }
   })
-  const AppNavigator = createStackNavigator({
-    FlatItems: FlatListItems,
-    UserProfile: UserProfileScreen
-  });
-  export default createAppContainer (AppNavigator);
