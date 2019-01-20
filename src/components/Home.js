@@ -79,15 +79,22 @@ class HomeScreenDetail extends React.Component {
     this.props.navigation.navigate('ImagePickers');
   }
 
+  onLogin = () =>{
+    this.props.navigation.navigate('Login');
+  } 
+
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 20 }}>
         <View>
-          <TouchableOpacity onPress={this.onPicker}>
-            <Text>Picker</Text>
+          <TouchableOpacity onPress={this.onPicker} style={styles.button}>
+            <Text style={styles.text}>Picker</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={this.onLogin}>
+            <Text style={styles.text}>Login</Text>
           </TouchableOpacity>
         </View>
-        {/* <FlatList
+        <FlatList
           data={this.state.data}
           renderItem={({ item, index }) =>
             <View style={styles.item}>
@@ -99,7 +106,7 @@ class HomeScreenDetail extends React.Component {
           onEndReachedThreshold={0.5}
           refreshing={this.state.refreshing}
           onRefresh={this._onRefresh}
-        /> */}
+        />
       </View>
     );
   }
@@ -111,5 +118,14 @@ const styles = StyleSheet.create({
     height: '100%',
     borderBottomColor: 'grey',
     borderBottomWidth: 2
+  },
+  button: {
+    backgroundColor: 'blue',
+    marginBottom: 10
+  },
+  text: {
+    color: 'white',
+    fontSize: 20,
+    textAlign: 'center'
   }
 })

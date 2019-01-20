@@ -9,8 +9,6 @@ export default class FlatListItems extends React.Component{
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(nextProps.item);
-    console.log(prevState.item);
     if (nextProps.item !== prevState.item) {
       return { item: nextProps.item };
     }

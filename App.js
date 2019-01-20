@@ -5,9 +5,11 @@ import ImagePickers from './src/components/ImagePickers';
 import UserProfileScreen from './src/components/UserProfile';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './src/reducers/taskReducer';
+import Login from './src/components/Login';
+import rootReducer from './src/reducers';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
+
 export default class App extends React.Component{
   render() {
     return (
@@ -20,6 +22,7 @@ export default class App extends React.Component{
 const AppNavigator = createStackNavigator({
   HomeDetail: HomeScreenDetail,
   ImagePickers :ImagePickers,
+  Login : Login,
   UserProfile: {
     screen: UserProfileScreen,
     navigationOptions: () => ({

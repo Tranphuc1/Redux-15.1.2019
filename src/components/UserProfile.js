@@ -17,9 +17,9 @@ class UserProfileScreen extends Component {
     );
   }
 }
-function mapStateToProps(state){
-  return {
-    MyData: state.item
+const mapStateToProps = (state) => {
+  return {  
+    MyData: state.taskreducer.item
   }
 }
 export default connect(mapStateToProps)(UserProfileScreen);

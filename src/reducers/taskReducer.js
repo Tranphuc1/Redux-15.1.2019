@@ -1,7 +1,7 @@
 import UP_DATA from '../actions/actionType';
 
 const defaultState ={item:{}}
-export default reducer = (state = defaultState,action) =>{
+const taskreducer = (state = defaultState,action) =>{
     switch(action.type){
         case UP_DATA:
             return {item:action.item};
@@ -9,3 +9,4 @@ export default reducer = (state = defaultState,action) =>{
             return state;
     }
 }
+export default taskreducer;
