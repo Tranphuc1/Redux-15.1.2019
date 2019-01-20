@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import FlatListItems from './FlatListItems';
 import { connect } from 'react-redux';
-
 const initState = {
   data: [],
   page: 1,
@@ -76,10 +75,19 @@ class HomeScreenDetail extends React.Component {
     this.props.dispatch({ type: 'UP_DATA', item: item });
   }
 
+  onPicker = () => {
+    this.props.navigation.navigate('ImagePickers');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, paddingTop: 20 }}>
-        <FlatList
+        <View>
+          <TouchableOpacity onPress={this.onPicker}>
+            <Text>Picker</Text>
+          </TouchableOpacity>
+        </View>
+        {/* <FlatList
           data={this.state.data}
           renderItem={({ item, index }) =>
             <View style={styles.item}>
@@ -91,7 +99,7 @@ class HomeScreenDetail extends React.Component {
           onEndReachedThreshold={0.5}
           refreshing={this.state.refreshing}
           onRefresh={this._onRefresh}
-        />
+        /> */}
       </View>
     );
   }

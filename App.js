@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import HomeScreenDetail from './src/components/Home';
+import ImagePickers from './src/components/ImagePickers';
 import UserProfileScreen from './src/components/UserProfile';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -18,6 +19,7 @@ export default class App extends React.Component{
 }
 const AppNavigator = createStackNavigator({
   HomeDetail: HomeScreenDetail,
+  ImagePickers :ImagePickers,
   UserProfile: {
     screen: UserProfileScreen,
     navigationOptions: () => ({
