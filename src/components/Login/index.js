@@ -16,6 +16,7 @@ export default class Login extends React.Component {
       { cancelable: false }
     )
   }
+  
   render() {
     return <LoginForm onSubmit={this.handleSubmit} />
   }

@@ -13,6 +13,7 @@ export default function MyTextInput(props) {
         onChangeText={input.onChange}
         // onBlur={input.onBlur}
         // onFocus={input.onFocus}
+        placeholder="Email"
         value={input.value}
         />
     </View>

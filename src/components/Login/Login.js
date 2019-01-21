@@ -9,11 +9,11 @@ let LoginForm = props => {
     <ScrollView  onSubmit={handleSubmit}>
       <View>
         <Text>Email</Text>
-        <Field name={'Email'} component={MyTextInput}/>
+        <Field name={'Email'} component={MyTextInput} placeholder="Email"/>
       </View>
       <View>
         <Text>Pass</Text>
-        <Field name={'Pass'} component={MyTextInput}/>
+        <Field name={'Pass'} component={MyTextInput} placeholder="Password"/>
       </View>
       <TouchableOpacity onPress={props.handleSubmit}>
         <Text>Submit!</Text>
